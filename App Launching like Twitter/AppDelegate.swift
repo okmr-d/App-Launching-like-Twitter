@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         transformAnimation.duration = 1
         transformAnimation.beginTime = CACurrentMediaTime() + 1 //add delay of 1 second
         let initalBounds = NSValue(CGRect: navigationController.view.layer.mask.bounds)
-        let secondBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 45, height: 45))
+        let secondBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 50, height: 50))
         let finalBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 2000, height: 2000))
         transformAnimation.values = [initalBounds, secondBounds, finalBounds]
         transformAnimation.keyTimes = [0, 0.5, 1]
@@ -55,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.view.layer.mask.addAnimation(transformAnimation, forKey: "maskAnimation")
         
         // logo mask background view animation
-        UIView.animateWithDuration(1.0,
-            delay: 0.9,
+        UIView.animateWithDuration(0.1,
+            delay: 1.35,
             options: UIViewAnimationOptions.CurveEaseIn,
             animations: {
                 maskBgView.alpha = 0.0
@@ -66,23 +66,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         // root view animation
-        UIView.animateWithDuration(0.3,
-            delay: 1.5,
-            options: UIViewAnimationOptions.CurveEaseOut,
+        UIView.animateWithDuration(0.25,
+            delay: 1.3,
+            options: UIViewAnimationOptions.TransitionNone,
             animations: {
-                self.window!.rootViewController!.view.transform = CGAffineTransformMakeScale(1.03, 1.03)
+                self.window!.rootViewController!.view.transform = CGAffineTransformMakeScale(1.05, 1.05)
             },
             completion: { finished in
-                
-                UIView.animateWithDuration(0.2,
-                    delay: 0.2,
-                    options: UIViewAnimationOptions.CurveEaseIn,
+                UIView.animateWithDuration(0.3,
+                    delay: 0.0,
+                    options: UIViewAnimationOptions.CurveEaseInOut,
                     animations: {
                         self.window!.rootViewController!.view.transform = CGAffineTransformIdentity
                     },
                     completion: nil
                 )
         })
+        
+        
         
         return true
     }
