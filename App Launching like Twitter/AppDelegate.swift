@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // rootViewController from StoryBoard
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var navigationController = mainStoryboard.instantiateViewControllerWithIdentifier("navigationController") as! UINavigationController
+        var navigationController = mainStoryboard.instantiateViewControllerWithIdentifier("navigationController") as! UIViewController
         self.window!.rootViewController = navigationController
         
         // logo mask
@@ -82,8 +82,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     completion: nil
                 )
         })
-        
-        
         
         return true
     }
